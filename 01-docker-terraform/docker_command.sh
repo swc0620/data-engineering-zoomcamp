@@ -24,22 +24,22 @@ docker run -it \
 
 URL="https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-01.parquet"
 
-# python ingest_data.py \
-#     --user=root \
-#     --password=root \
-#     --host=localhost \
-#     --port=5432 \
-#     --db=ny_taxi \
-#     --table_name=yellow_taxi_trips \
-#     --url=${URL}
+python ingest_data.py \
+    --user=root \
+    --password=root \
+    --host=localhost \
+    --port=5432 \
+    --db=ny_taxi \
+    --table_name=yellow_taxi_trips \
+    --url=${URL}
 
 docker build -t taxi_ingest:v001 .
 docker run -it \
-    --network=pg-network \
+    --network=01-docker-terraform_default \
     taxi_ingest:v001 \
     --user=root \
     --password=root \
-    --host=pg-database \
+    --host=pgdatabase \
     --port=5432 \
     --db=ny_taxi \
     --table_name=yellow_taxi_trips \
