@@ -6,6 +6,14 @@
 
 *.json
 
+*.log
+
+.env
+
+*.hcl
+
+latest
+
 # Local .terraform directories
 **/.terraform/*
 

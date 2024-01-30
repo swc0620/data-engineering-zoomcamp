@@ -1,0 +1,2 @@
+apache-airflow-providers-google # google provider for apache airflow
+pyarrow # package for handling parquet files
